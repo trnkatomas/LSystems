@@ -20,10 +20,11 @@ Alphabet& Alphabet::operator()(char s) {
 void Alphabet::addSymbol(char id) {
     std::string ids(&id, 1);
     Symbol* s = NULL;
-    s = sf.createSymbol(trim(ids), s);
+    s = sf.createSymbol(trim(ids));
     if (rules.find(ids.at(0)) == rules.end()) {
         rules[id] = *s;
     }
+    delete s;
 }
 
 
@@ -44,7 +45,7 @@ void Alphabet::nextGeneration() {
 }
 
 void Alphabet::setAxiom(std::string& input) {
-    axiom = sf.createSymbol(trim(input), axiom);
+    axiom = sf.createSymbol(trim(input));
     if (currentGeneration.empty()) {
         currentGeneration.push_back(*axiom);
     }
@@ -63,13 +64,15 @@ std::map<char, Symbol> Alphabet::getRules() {
 
 void Alphabet::addRule(std::string& key, std::string& value) {
     Symbol* k = NULL; Symbol* v = NULL;
-    k = sf.createSymbol(trim(key), k);
-    v = sf.createSymbol(trim(value), v);
+    k = sf.createSymbol(trim(key));
+    v = sf.createSymbol(trim(value));
     if (DEBUG_OUTPUT) {
         std::cout << "key: " << (*k) << std::endl;
         std::cout << "value: " << (*v) << std::endl;
     }
     rules[(*k)().at(0)] = *v;
+    delete v;
+    delete k;
 }
 
 Alphabet::iterator Alphabet::begin() {

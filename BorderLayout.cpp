@@ -59,7 +59,7 @@ BorderLayout::~BorderLayout()
 {
     QLayoutItem *l;
     while ((l = takeAt(0)))
-        delete l;
+        delete l;   
 }
 
 void BorderLayout::addItem(QLayoutItem *item)
@@ -177,9 +177,19 @@ QSize BorderLayout::sizeHint() const
 
 QLayoutItem *BorderLayout::takeAt(int index)
 {
-    if (index >= 0 && index < list.size()) {
+    /*if (index >= 0 && index < list.size()) {
         ItemWrapper *layoutStruct = list.takeAt(index);
         return layoutStruct->item;
+    }
+    return 0;*/
+    
+    if (index >= 0 && index < list.size()) {
+        ItemWrapper *layoutStruct = list.takeAt(index);
+
+        QLayoutItem * item= layoutStruct->item; // store the address of layout->item
+        delete layoutStruct; // destroy the struct
+
+        return item; // return the stored address
     }
     return 0;
 }

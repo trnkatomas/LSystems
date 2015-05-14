@@ -65,7 +65,7 @@ public:
 
 class SymbolFactory{
 public:
-    Symbol* createSymbol(const std::string& input, Symbol* s);
+    Symbol* createSymbol(const std::string& input);
 };
 
 

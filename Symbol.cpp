@@ -67,13 +67,12 @@ Axiom::Axiom(char s) {
     this->identifier = id; //();
 }
 
-Symbol* SymbolFactory::createSymbol(const std::string& input,Symbol* s) {
+Symbol* SymbolFactory::createSymbol(const std::string& input) {
     if (input.length() == 1) {
-        s = new Symbol(input.at(0));
+        return new Symbol(input.at(0));
     } else {
-        s = new SymbolSequence(input);
+        return new SymbolSequence(input);
     }
-    return s;
 }
 
 

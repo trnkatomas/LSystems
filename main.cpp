@@ -40,7 +40,8 @@ int main(int argc, char *argv[]) {
 
     QApplication app(argc, argv);
     // create and show your widgets here
-    QWidget* w = new QWidget;
+    QWidget widget;
+    QWidget* w = &widget;
     //w->setFixedSize(100,100);
     w->resize(300,400);
     w->setMinimumSize(300,400);
@@ -57,7 +58,7 @@ int main(int argc, char *argv[]) {
     QLabel* help = new QLabel;
     help->setAlignment(Qt::AlignBottom | Qt::AlignLeft);
     help->setContentsMargins(0,0,0,0);
-    help->setText("o - open, r - rotate, q - quit, ->,space,Enter - next generation");
+    help->setText("o - open, r - rotate, z - reset viewpoint, q - quit, space,Enter - next generation");
     layout->addWidget(help, BorderLayout::South);
     w->setLayout(layout);
     w->show();
