@@ -1,10 +1,3 @@
-/* 
- * File:   Line.h
- * Author: tomas
- *
- * Created on 04 May 2015, 21:13
- */
-
 #ifndef LINE_H
 #define	LINE_H
 

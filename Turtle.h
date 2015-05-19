@@ -1,10 +1,3 @@
-/* 
- * File:   Turtle.h
- * Author: tomas
- *
- * Created on 04 May 2015, 23:28
- */
-
 #ifndef TURTLE_H
 #define	TURTLE_H
 
@@ -54,7 +47,7 @@ public:
     void restart();    
  
     //Line* makeMove(char& identifier);
-    Line* makeMove(char& identifier, Line* l);
+    Line* makeMove(char& identifier);
 };
 
 #endif	/* TURTLE_H */

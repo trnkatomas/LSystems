@@ -33,6 +33,8 @@
      void clicked();
      
      void open(std::string filename);
+     
+     void save();
 
  signals:
     void clickedSignal();
@@ -42,6 +44,7 @@
      Alphabet* alphabet;
      Turtle* t;
      DrawLabel* canvas;
+     std::string filename;
      
      void useTurtle(std::string& currentString);
      

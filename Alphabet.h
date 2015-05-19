@@ -1,10 +1,3 @@
-/* 
- * File:   Alphabet.h
- * Author: tomas
- *
- * Created on 02 May 2015, 23:24
- */
-
 #ifndef ALPHABET_H
 #define	ALPHABET_H
 

@@ -7,11 +7,16 @@ Symbol::Symbol(char i) {
     this->identifier = i;
 }
 
-
 const std::string& Symbol::operator()() const {
     return identifier;
 }
 
+/**
+ * Overrinden operator allowing symbols to be compared directly according to 
+ * their identifier
+ * @param other
+ * @return 
+ */
 bool Symbol::operator==(const Symbol& other) {
     const std::string s = other();
     return identifier.compare(s) == 0;
@@ -45,8 +50,6 @@ SymbolSequence::SymbolSequence(char i) {
 const std::string& SymbolSequence::operator()(void) const{
     return identifier; 
 }
-
-
 
 
 SymbolSequence::SymbolSequence(const std::string& input) {

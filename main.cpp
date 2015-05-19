@@ -1,10 +1,3 @@
-/*
- * File:   main.cpp
- * Author: tomas
- *
- * Created on 29 April 2015, 18:01
- */
-
 /**
  * GUI includes
  */
@@ -35,21 +28,17 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    // initialize resources, if needed
-    // Q_INIT_RESOURCE(resfile);
-
     QApplication app(argc, argv);
-    // create and show your widgets here
+    // creates and shows widgets
     QWidget widget;
     QWidget* w = &widget;
-    //w->setFixedSize(100,100);
     w->resize(300,400);
     w->setMinimumSize(300,400);
     BorderLayout* layout = new BorderLayout;
     layout->setContentsMargins(0,0,0,0);
     
     DrawLabel c;
-    QLabel* label = &c; //new QLabel;
+    QLabel* label = &c;
     label->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     label->setContentsMargins(0,0,0,0);
     label->setStyleSheet("background-color:white");
@@ -58,7 +47,7 @@ int main(int argc, char *argv[]) {
     QLabel* help = new QLabel;
     help->setAlignment(Qt::AlignBottom | Qt::AlignLeft);
     help->setContentsMargins(0,0,0,0);
-    help->setText("o - open, r - rotate, z - reset viewpoint, q - quit, space,Enter - next generation");
+    help->setText("press h for help");
     layout->addWidget(help, BorderLayout::South);
     w->setLayout(layout);
     w->show();
@@ -72,7 +61,8 @@ int main(int argc, char *argv[]) {
                       &contr, SLOT(clicked()));
     QObject::connect(&c, SIGNAL(open(std::string)),
                       &contr, SLOT(open(std::string)));
+    QObject::connect(&c, SIGNAL(save()),
+                      &contr, SLOT(save()));
     c.setFocus();
-    //c.grabKeyboard();
     return app.exec();
 }

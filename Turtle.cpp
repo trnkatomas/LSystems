@@ -20,8 +20,7 @@ void Turtle::restart() {
     currentAngle = 0;
 }
 
-Line* Turtle::makeMove(char& identifier, Line* l) {//Symbol& s){
-    //std::string identifier = s();
+Line* Turtle::makeMove(char& identifier) {
     if ((DRAW_START_1 <= identifier &&
             DRAW_END_1 >= identifier) ||
             (DRAW_START_2 <= identifier &&
@@ -32,19 +31,16 @@ Line* Turtle::makeMove(char& identifier, Line* l) {//Symbol& s){
         previousPoint.y = currentPoint.y;
         currentPoint.x = currentPoint.x + newX;
         currentPoint.y = currentPoint.y + newY;
-        l = new Line(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y);        
+        return new Line(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y);        
     }
     if (identifier == TURN_LEFT) {
-        currentAngle -= angle;
-        l = NULL;
+        currentAngle -= angle;        
     }
     if (identifier == TURN_RIGHT) {
         currentAngle += angle;
-        l = NULL;
     }
     if (identifier == TURN) {
         currentAngle += M_PI;
-        l = NULL;
     }
     if (identifier == STACK_PUSH) {
         double a = currentAngle;
@@ -53,14 +49,12 @@ Line* Turtle::makeMove(char& identifier, Line* l) {//Symbol& s){
         p.x = currentPoint.x;
         p.y = currentPoint.y;
         stackedPoints.push_back(p);
-        l = NULL;
     }
     if (identifier == STACK_POP) {
         currentAngle = stackedAngles.back();
         stackedAngles.pop_back();
         currentPoint = stackedPoints.back();
         stackedPoints.pop_back();
-        l = NULL;
     }
     if (identifier >= JUST_MOVE_START &&
         JUST_MOVE_END >= identifier){
@@ -71,7 +65,7 @@ Line* Turtle::makeMove(char& identifier, Line* l) {//Symbol& s){
         currentPoint.x = currentPoint.x + newX;
         currentPoint.y = currentPoint.y + newY;
     }
-    return l;
+    return NULL;
 }
 
 

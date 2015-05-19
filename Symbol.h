@@ -1,10 +1,3 @@
-/* 
- * File:   Symbol.h
- * Author: tomas
- *
- * Created on 02 May 2015, 23:24
- */
-
 #ifndef SYMBOL_H
 #define	SYMBOL_H
 

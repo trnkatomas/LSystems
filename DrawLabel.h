@@ -34,17 +34,17 @@ class DrawLabel : public QLabel{
         virtual void keyPressEvent(QKeyEvent* ev);
         virtual void paintEvent(QPaintEvent*);
         void addLine(Line& l);
+        void savePng(std::string& path);
         void clearObjects();
         void reset();
  
     signals:
         void clicked();
         void open(std::string);
+        void save();
  
-    protected:
-        void saveSvg();
-        void savePng();
-        void mousePressEvent ( QMouseEvent * event ) ;
+    protected:  
+        void mousePressEvent(QMouseEvent * event ) ;
         void paint(QPainter& p);
 };
 

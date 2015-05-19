@@ -1,22 +1,33 @@
 #include "Alphabet.h"
 
+/** Implicit constructor*/
 Alphabet::Alphabet() {
 
 }
 
-
+/**
+ * Overriden operator ++ creating next generation
+ * @return 
+ */
 Alphabet& Alphabet::operator++() {
     this->nextGeneration();
     return *this;
 }
 
-
+/**
+ * Overriden operator () adding new symbol to the alphabet
+ * @param s
+ * @return 
+ */
 Alphabet& Alphabet::operator()(char s) {
     addSymbol(s);
     return *this;
 }
 
-
+/**
+ * Method adding new symbol to the alphaber
+ * @param id
+ */
 void Alphabet::addSymbol(char id) {
     std::string ids(&id, 1);
     Symbol* s = NULL;
@@ -27,7 +38,9 @@ void Alphabet::addSymbol(char id) {
     delete s;
 }
 
-
+/**
+ * Method developing the next generation, next state of the system
+ */
 void Alphabet::nextGeneration() {
     std::vector<Symbol> new_gen;
     for (unsigned int i = 0; i < currentGeneration.size(); i++) {
@@ -44,6 +57,11 @@ void Alphabet::nextGeneration() {
     currentGeneration.swap(new_gen);
 }
 
+
+/**
+ * Setter for axiom
+ * @param input
+ */
 void Alphabet::setAxiom(std::string& input) {
     axiom = sf.createSymbol(trim(input));
     if (currentGeneration.empty()) {
@@ -51,17 +69,28 @@ void Alphabet::setAxiom(std::string& input) {
     }
 }
 
+/**
+ * Getter for axiom
+ * @return 
+ */
 Symbol& Alphabet::getAxiom() {
     return *axiom;
 }
 
-
+/**
+ * Getter for rules
+ * @return 
+ */
 std::map<char, Symbol> Alphabet::getRules() {
     return rules;
 }
 
 
-
+/**
+ * Method adding rules to the alphabet
+ * @param key
+ * @param value
+ */
 void Alphabet::addRule(std::string& key, std::string& value) {
     Symbol* k = NULL; Symbol* v = NULL;
     k = sf.createSymbol(trim(key));
