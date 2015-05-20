@@ -29,3 +29,7 @@
 
 # Other mess
 *.zip
+nbproject/
+dist/
+*.png
+*.svg
