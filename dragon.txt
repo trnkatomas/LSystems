@@ -1,5 +1,0 @@
-X Y f + -
-fX
-X -> X+Yf-
-Y -> -fX-Y
-90

@@ -1,5 +1,0 @@
-L R + -
-L
-L -> L+R++R-L--LL-R+
-R -> -L+RR++R+L--L-R
-60

@@ -1,5 +1,0 @@
-A B
-A
-A -> ABA
-B -> BBB
-0

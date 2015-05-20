@@ -1,5 +1,0 @@
-X Y F + - 
-X
-X -> -YF+XFX+FY-
-Y -> +XF-YFY-FX+
-90

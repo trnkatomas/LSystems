@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_DrawLabel_t {
-    QByteArrayData data[5];
-    char stringdata[36];
+    QByteArrayData data[6];
+    char stringdata[41];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,10 +33,12 @@ QT_MOC_LITERAL(0, 0, 9), // "DrawLabel"
 QT_MOC_LITERAL(1, 10, 7), // "clicked"
 QT_MOC_LITERAL(2, 18, 0), // ""
 QT_MOC_LITERAL(3, 19, 4), // "open"
-QT_MOC_LITERAL(4, 24, 11) // "std::string"
+QT_MOC_LITERAL(4, 24, 11), // "std::string"
+QT_MOC_LITERAL(5, 36, 4) // "save"
 
     },
-    "DrawLabel\0clicked\0\0open\0std::string"
+    "DrawLabel\0clicked\0\0open\0std::string\0"
+    "save"
 };
 #undef QT_MOC_LITERAL
 
@@ -46,20 +48,22 @@ static const uint qt_meta_data_DrawLabel[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x06 /* Public */,
-       3,    1,   25,    2, 0x06 /* Public */,
+       1,    0,   29,    2, 0x06 /* Public */,
+       3,    1,   30,    2, 0x06 /* Public */,
+       5,    0,   33,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -71,6 +75,7 @@ void DrawLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->clicked(); break;
         case 1: _t->open((*reinterpret_cast< std::string(*)>(_a[1]))); break;
+        case 2: _t->save(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -86,6 +91,12 @@ void DrawLabel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             typedef void (DrawLabel::*_t)(std::string );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&DrawLabel::open)) {
                 *result = 1;
+            }
+        }
+        {
+            typedef void (DrawLabel::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&DrawLabel::save)) {
+                *result = 2;
             }
         }
     }
@@ -116,13 +127,13 @@ int DrawLabel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
@@ -138,5 +149,11 @@ void DrawLabel::open(std::string _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
+}
+
+// SIGNAL 2
+void DrawLabel::save()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE
